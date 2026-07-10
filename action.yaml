@@ -12,7 +12,7 @@ inputs:
   dotnet-version:
     description: The .NET SDK version to setup
     required: false
-    default: 8.0.x
+    default: 6.0.x
   pre-release:
     description: Toggle searching pre-release versions
     required: false
