@@ -12,7 +12,7 @@ inputs:
   dotnet-version:
     description: The .NET SDK version to setup
     required: false
-    default: 6.0.x
+    default: 8.0.x
   pre-release:
     description: Toggle searching pre-release versions
     required: false
@@ -26,7 +26,7 @@ runs:
   using: composite
   steps:
 
-  - uses: actions/setup-dotnet@v4
+  - uses: actions/setup-dotnet@v5
     with:
       dotnet-version: ${{ inputs.dotnet-version }}
 
@@ -66,7 +66,7 @@ runs:
         fi
       done
 
-      regex=$(echo $input_version | sed 's/\./\\./g' | sed 's/x/./g')
+      regex=$(echo $input_version | sed 's/\./\\./g' | sed 's/x/.*/g')
       matched_versions=()
 
       for version in "${versions[@]}"; do
